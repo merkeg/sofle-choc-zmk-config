@@ -53,6 +53,30 @@
             bindings = <&kp LG(V)>;
             key-positions = <39 40>;
         };
+
+        delete-left {
+            bindings = <&kp BACKSPACE>;
+            key-positions = <16 15>;
+            layers = <0>;
+        };
+
+        delete-right {
+            bindings = <&kp BACKSPACE>;
+            key-positions = <19 20>;
+            layers = <0>;
+        };
+
+        delete-left-lower {
+            bindings = <&kp DELETE>;
+            key-positions = <16 15>;
+            layers = <1>;
+        };
+
+        delete-right-raised {
+            bindings = <&kp BACKSPACE>;
+            key-positions = <19 20>;
+            layers = <2>;
+        };
     };
 
     keymap {
