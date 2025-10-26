@@ -58,13 +58,13 @@
         delete-left {
             bindings = <&kp BACKSPACE>;
             key-positions = <28 27>;
-            layers = <0>;
+            layers = <0 1>;
         };
 
         delete-right {
             bindings = <&kp BACKSPACE>;
             key-positions = <31 32>;
-            layers = <0>;
+            layers = <0 1>;
         };
 
         delete-left-lower {
