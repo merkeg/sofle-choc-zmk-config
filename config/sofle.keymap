@@ -22,8 +22,8 @@
         compatible = "zmk,conditional-layers";
 
         adjust_layer {
-            if-layers = <2 3>;
-            then-layer = <4>;
+            if-layers = <3 4>;
+            then-layer = <5>;
         };
     };
 
@@ -43,40 +43,61 @@
         cut {
             bindings = <&kp LG(X)>;
             key-positions = <37 38>;
+            layers = <0>;
         };
 
         copy {
             bindings = <&kp LG(C)>;
             key-positions = <38 39>;
+            layers = <0>;
         };
 
         paste {
             bindings = <&kp LG(V)>;
             key-positions = <39 40>;
+            layers = <0>;
         };
 
         delete-left {
             bindings = <&kp BACKSPACE>;
             key-positions = <28 27>;
-            layers = <0 1>;
+            layers = <0 2 1>;
         };
 
         delete-right {
             bindings = <&kp BACKSPACE>;
             key-positions = <31 32>;
-            layers = <0 1>;
+            layers = <0 2 1>;
         };
 
         delete-left-lower {
             bindings = <&kp DELETE>;
             key-positions = <27 28>;
-            layers = <2>;
+            layers = <3 4>;
         };
 
         delete-right-raised {
             bindings = <&kp DELETE>;
             key-positions = <32 31>;
-            layers = <3>;
+            layers = <4 3>;
+        };
+
+        cut-windows {
+            bindings = <&kp LC(X)>;
+            key-positions = <37 38>;
+            layers = <1>;
+        };
+
+        copy-windows {
+            bindings = <&kp LC(C)>;
+            key-positions = <38 39>;
+            layers = <1>;
+        };
+
+        paste-windows {
+            bindings = <&kp LC(V)>;
+            key-positions = <39 40>;
+            layers = <1>;
         };
     };
 
@@ -98,12 +119,24 @@
 &kp TAB    &kp Q   &kp W     &kp E     &kp R      &kp T                           &kp Y   &kp U      &kp I      &kp O     &kp P     &kp MINUS
 &kp LCTRL  &kp A   &kp S     &kp D     &kp F      &kp G                           &kp H   &kp J      &kp K      &kp L     &kp SEMI  &kp SQT
 &kp LSHFT  &kp Z   &kp X     &kp C     &kp V      &kp B   &kp C_MUTE    &none     &kp N   &kp M      &kp COMMA  &kp DOT   &kp FSLH  &kp RSHFT
-                   &kp LGUI  &kp LALT  &kp LCTRL  &mo 2   &kp SPACE     &kp RALT  &mo 3   &kp RCTRL  &kp RALT   &kp RGUI
+                   &kp LGUI  &kp LALT  &kp LCTRL  &mo 4   &kp SPACE     &kp RALT  &mo 4   &kp RCTRL  &kp RALT   &kp RGUI
             >;
 
             sensor-bindings =
                 <&inc_dec_kp C_AC_SCROLL_UP C_AC_SCROLL_DOWN>,
                 <&inc_dec_kp PG_UP PG_DN>;
+        };
+
+        windows_layer {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+            >;
+
+            label = "windows";
         };
 
         gaming_layer {
@@ -173,7 +206,7 @@
             display-name = "adjust";
             bindings = <
 &bt BT_CLR         &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                  &none       &none      &kp KP_SLASH  &kp KP_MULTIPLY  &none         &none
-&ext_power EP_TOG  &none         &none         &none         &none         &tog 1                        &none       &kp KP_N7  &kp KP_N8     &kp KP_N9        &kp KP_MINUS  &none
+&ext_power EP_TOG  &none         &none         &none         &tog 1        &tog 2                        &none       &kp KP_N7  &kp KP_N8     &kp KP_N9        &kp KP_MINUS  &none
 &none              &none         &none         &none         &none         &none                         &kp KP_DOT  &kp KP_N4  &kp KP_N5     &kp KP_N6        &kp KP_PLUS   &none
 &none              &none         &none         &none         &none         &none         &none    &none  &kp KP_N0   &kp KP_N1  &kp KP_N2     &kp KP_N3        &none         &none
                                  &none         &none         &none         &none         &none    &none  &none       &none      &none         &none
