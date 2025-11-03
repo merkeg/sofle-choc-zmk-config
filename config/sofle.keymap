@@ -99,6 +99,11 @@
             key-positions = <39 40>;
             layers = <1>;
         };
+
+        hyper {
+            bindings = <&kp CAPSLOCK>;
+            key-positions = <36 49>;
+        };
     };
 
     keymap {
