@@ -134,11 +134,11 @@
 
         windows_layer {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans            &trans  &trans    &trans                    &trans  &trans    &trans  &trans             &trans  &trans
+&trans  &trans  &trans            &trans  &trans    &trans                    &trans  &trans    &trans  &trans             &trans  &trans
+&trans  &trans  &trans            &trans  &trans    &trans                    &trans  &trans    &trans  &trans             &trans  &trans
+&trans  &trans  &trans            &trans  &trans    &trans  &trans    &trans  &trans  &trans    &trans  &trans             &trans  &trans
+                &kp LEFT_CONTROL  &trans  &kp LGUI  &trans  &trans    &trans  &trans  &kp RGUI  &trans  &kp RIGHT_CONTROL
             >;
 
             label = "windows";
