@@ -22,8 +22,8 @@
         compatible = "zmk,conditional-layers";
 
         adjust_layer {
-            if-layers = <3 4>;
-            then-layer = <5>;
+            if-layers = <2 3>;
+            then-layer = <4>;
         };
     };
 
@@ -61,43 +61,25 @@
         delete-left {
             bindings = <&kp BACKSPACE>;
             key-positions = <28 27>;
-            layers = <0 2 1>;
+            layers = <0 1>;
         };
 
         delete-right {
             bindings = <&kp BACKSPACE>;
             key-positions = <31 32>;
-            layers = <0 2 1>;
+            layers = <0 1>;
         };
 
         delete-left-lower {
             bindings = <&kp DELETE>;
             key-positions = <27 28>;
-            layers = <3 4>;
+            layers = <2 3>;
         };
 
         delete-right-raised {
             bindings = <&kp DELETE>;
             key-positions = <32 31>;
-            layers = <4 3>;
-        };
-
-        cut-windows {
-            bindings = <&kp LC(X)>;
-            key-positions = <37 38>;
-            layers = <1>;
-        };
-
-        copy-windows {
-            bindings = <&kp LC(C)>;
-            key-positions = <38 39>;
-            layers = <1>;
-        };
-
-        paste-windows {
-            bindings = <&kp LC(V)>;
-            key-positions = <39 40>;
-            layers = <1>;
+            layers = <3 2>;
         };
 
         hyper {
@@ -108,7 +90,25 @@
         bc_inspect {
             bindings = <&kp LA(LC(F1))>;
             key-positions = <0 1>;
-            layers = <1>;
+        };
+    };
+
+    behaviors {
+        esc_or_super: esc_or_super {
+            compatible = "zmk,behavior-hold-tap";
+            label = "ESC_OR_SUPER";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            hold-trigger-key-positions = <0>;
+            tapping-term-ms = <200>;
+        };
+
+        esc_or_super_behavior: esc_or_super_behavior {
+            compatible = "zmk,behavior-tap-dance";
+            label = "ESC_OR_SUPER_BEHAVIOR";
+            #binding-cells = <0>;
+            bindings = <&esc_or_super LS(LA(LC(LGUI))) ESCAPE>;
         };
     };
 
@@ -130,24 +130,12 @@
 &kp TAB    &kp Q   &kp W     &kp E     &kp R      &kp T                                                    &kp Y   &kp U      &kp I      &kp O     &kp P     &kp MINUS
 &kp LCTRL  &kp A   &kp S     &kp D     &kp F      &kp G                                                    &kp H   &kp J      &kp K      &kp L     &kp SEMI  &kp SQT
 &kp LSHFT  &kp Z   &kp X     &kp C     &kp V      &kp B   &kp LA(LC(LG(LSHFT)))    &kp LA(LC(LEFT_SHIFT))  &kp N   &kp M      &kp COMMA  &kp DOT   &kp FSLH  &kp RSHFT
-                   &kp LGUI  &kp LALT  &kp LCTRL  &mo 3   &kp SPACE                &kp RALT                &mo 4   &kp RCTRL  &kp RALT   &kp RGUI
+                   &kp LGUI  &kp LALT  &kp LCTRL  &mo 2   &kp SPACE                &kp RALT                &mo 3   &kp RCTRL  &kp RALT   &kp RGUI
             >;
 
             sensor-bindings =
                 <&inc_dec_kp C_AC_SCROLL_UP C_AC_SCROLL_DOWN>,
                 <&inc_dec_kp PG_UP PG_DN>;
-        };
-
-        windows_layer {
-            bindings = <
-&trans  &trans  &trans            &trans  &trans    &trans                    &trans  &trans    &trans  &trans             &trans  &trans
-&trans  &trans  &trans            &trans  &trans    &trans                    &trans  &trans    &trans  &trans             &trans  &trans
-&trans  &trans  &trans            &trans  &trans    &trans                    &trans  &trans    &trans  &trans             &trans  &trans
-&trans  &trans  &trans            &trans  &trans    &trans  &trans    &trans  &trans  &trans    &trans  &trans             &trans  &trans
-                &kp LEFT_CONTROL  &trans  &kp LGUI  &trans  &trans    &trans  &trans  &kp RGUI  &trans  &kp RIGHT_CONTROL
-            >;
-
-            label = "windows";
         };
 
         gaming_layer {
@@ -217,20 +205,10 @@
             display-name = "adjust";
             bindings = <
 &bt BT_CLR         &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                    &trans      &trans     &kp KP_SLASH  &kp KP_MULTIPLY  &trans        &trans
-&ext_power EP_TOG  &trans        &trans        &trans        &tog 1        &tog 2                          &trans      &kp KP_N7  &kp KP_N8     &kp KP_N9        &kp KP_MINUS  &trans
+&ext_power EP_TOG  &trans        &trans        &trans        &trans        &tog 1                          &trans      &kp KP_N7  &kp KP_N8     &kp KP_N9        &kp KP_MINUS  &trans
 &trans             &trans        &trans        &trans        &trans        &trans                          &kp KP_DOT  &kp KP_N4  &kp KP_N5     &kp KP_N6        &kp KP_PLUS   &trans
 &trans             &trans        &trans        &trans        &trans        &trans        &trans    &trans  &kp KP_N0   &kp KP_N1  &kp KP_N2     &kp KP_N3        &trans        &trans
                                  &trans        &trans        &trans        &trans        &trans    &trans  &trans      &trans     &trans        &trans
-            >;
-        };
-
-        layer_6 {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
             >;
         };
     };
