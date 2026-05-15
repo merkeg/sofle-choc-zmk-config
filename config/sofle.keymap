@@ -91,6 +91,11 @@
             bindings = <&kp LA(LC(F1))>;
             key-positions = <0 1>;
         };
+
+        super {
+            bindings = <&kp LS(LA(LC(LEFT_GUI)))>;
+            key-positions = <12 24>;
+        };
     };
 
     behaviors {
