@@ -103,6 +103,15 @@
             hold-trigger-key-positions = <0>;
             tapping-term-ms = <200>;
         };
+
+        space_or_super: space_or_super {
+            compatible = "zmk,behavior-hold-tap";
+            label = "SPACE_OR_SUPER";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+        };
     };
 
     keymap {
@@ -119,11 +128,11 @@
             //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
 
             bindings = <
-&esc_or_super LC(LA(LS(LGUI))) ESC  &kp N1  &kp N2    &kp N3    &kp N4     &kp N5                                                   &kp N6  &kp N7     &kp N8     &kp N9    &kp N0    &kp EQUAL
-&kp TAB                             &kp Q   &kp W     &kp E     &kp R      &kp T                                                    &kp Y   &kp U      &kp I      &kp O     &kp P     &kp MINUS
-&kp LCTRL                           &kp A   &kp S     &kp D     &kp F      &kp G                                                    &kp H   &kp J      &kp K      &kp L     &kp SEMI  &kp SQT
-&kp LSHFT                           &kp Z   &kp X     &kp C     &kp V      &kp B   &kp LA(LC(LG(LSHFT)))    &kp LA(LC(LEFT_SHIFT))  &kp N   &kp M      &kp COMMA  &kp DOT   &kp FSLH  &kp RSHFT
-                                            &kp LGUI  &kp LALT  &kp LCTRL  &mo 2   &kp SPACE                &kp RALT                &mo 3   &kp RCTRL  &kp RALT   &kp RGUI
+&esc_or_super LC(LA(LS(LGUI))) ESC  &kp N1  &kp N2    &kp N3    &kp N4     &kp N5                                                                     &kp N6  &kp N7     &kp N8     &kp N9    &kp N0    &kp EQUAL
+&kp TAB                             &kp Q   &kp W     &kp E     &kp R      &kp T                                                                      &kp Y   &kp U      &kp I      &kp O     &kp P     &kp MINUS
+&kp LCTRL                           &kp A   &kp S     &kp D     &kp F      &kp G                                                                      &kp H   &kp J      &kp K      &kp L     &kp SEMI  &kp SQT
+&kp LSHFT                           &kp Z   &kp X     &kp C     &kp V      &kp B   &kp LA(LC(LG(LSHFT)))                      &kp LA(LC(LEFT_SHIFT))  &kp N   &kp M      &kp COMMA  &kp DOT   &kp FSLH  &kp RSHFT
+                                            &kp LGUI  &kp LALT  &kp LCTRL  &mo 2   &space_or_super LS(LA(LG(LCTRL))) SPACE    &kp RALT                &mo 3   &kp RCTRL  &kp RALT   &kp RGUI
             >;
 
             sensor-bindings =
@@ -155,7 +164,7 @@
 
             bindings = <
 &kp F1  &kp F2  &kp F3  &kp F4   &kp F5   &kp F6                     &trans  &kp C_PREVIOUS  &kp C_PP              &kp C_NEXT             &trans    &trans
-&kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12                    &trans  &trans          &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans    &kp GRAVE
+&kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12                    &trans  &trans          &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans    &kp NUBS
 &trans  &trans  &trans  &trans   &trans   &trans                     &trans  &trans          &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &trans    &kp PIPE
 &trans  &trans  &trans  &trans   &trans   &trans   &trans    &trans  &trans  &trans          &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp BSLH  &trans
                 &trans  &trans   &trans   &trans   &trans    &trans  &trans  &trans          &trans                &trans
